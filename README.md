@@ -20,3 +20,25 @@ An open-source, speech-driven AI Agent Skill that turns raw talking-head footage
 git clone [https://github.com/aliii12tegh/ai-video-director-skill.git](https://github.com/aliii12tegh/ai-video-director-skill.git)
 cd ai-video-director-skill
 pip install -r requirements.txt
+```
+
+### 3. Run
+```bash
+# Step 1: Transcribe and detect cuts
+python scripts/transcribe_and_cut.py --input raw_video.mp4 --output work/transcript.json
+
+# Step 2: Create or generate work/edit_plan.json (see examples/sample_edit_plan.json)
+
+# Step 3: Render final video
+python scripts/render_video.py --plan work/edit_plan.json --output final_video.mp4
+```
+
+## Roadmap
+
+- **v1 (Current):** Local speech-driven silence cutting, JSON edit plans, and FFmpeg image/text overlays.
+- **v2 (Planned):** Automated background matting & studio/office scene replacement (`rembg` / Robust Video Matting).
+- **v3 (Planned):** Modular Video-to-Video (V2V) export for outfit changes and headwear overlays via ComfyUI / API backends.
+
+## License
+
+MIT License — see [LICENSE](LICENSE) for details.
